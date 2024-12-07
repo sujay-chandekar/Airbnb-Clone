@@ -1,0 +1,169 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* footer style */
+.container{
+    flex:1;
+}
+
+/* nav bar style */
+.navbar{
+    padding: 0% !important;
+}
+.container-fluid{
+    height: 5rem;
+    background-color: white;
+}
+.fa-regular{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color:#222222 !important;
+}
+
+/* footer style */
+
+.f-info-link a{
+    text-decoration: none;
+    color:#222222;
+}
+.f-info-link a:hover{
+    text-decoration: underline;
+}
+.f-info{
+    height: 8rem;
+    background-color: #ebebeb;
+    display:grid;
+    align-items: center;
+    text-align: center;
+}
+.f-info-social , .f-info-link{
+    width: 100%;
+    vertical-align: middle;
+}
+.f-info-social i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+/* Index page card styling */
+.card-img-top{
+    border-radius: 0.5rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 1rem !important;
+}
+.card-body{
+    padding: 0% !important;
+}
+
+.card-text-title{
+    font-weight: 400 !important;
+}
+.listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* new pahe */
+/* add button style */
+.add-btn{
+    background-color: #fe424d !important;
+}
+
+/* edit page */
+/* edit button */
+
+.edit-btn{
+    background-color: #fe424d !important;
+}
+
+/* show page */
+
+.show-img{
+    height:30vh;
+}
+
+.btns{
+    display: flex;
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* map styling  */
+
+#map {
+    top: 0;
+    bottom: 0;
+    width: 80vh;
+    height: 400px;
+  }
+
+
+/* nav bar search styling */
+.search-btn{
+    background-color: #fe424d;
+    color: #fff;
+    padding:0 1rem 0 1rem;
+    border-radius: 2rem;
+  }
+  .search-btn:hover{
+    background-color: #fe424d;
+  }
+  .search-inp{
+    border-radius: 2rem;
+    padding:0.5rem 2rem 0.5rem 2rem;
+  }
+
+  /* Filter styling */
+
+  #filters{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter{
+    text-align: center;
+    margin-right: 2rem;
+    margin-top:2rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+  }
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .filter p {
+    font-size:0.8rem;
+  }
+  .tax-info{
+    display:none;
+  }
+  .switch-toggle{
+    border:1px solid black;
+    height:3.5rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+  }
