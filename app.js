@@ -89,7 +89,12 @@ if (process.env.NODE_ENV != "production") {
   app.use(methodOverride("_method"));
   
   app.engine("ejs", ejsMate);
-  
+
+  //root route
+  app.get("/",async(req,res)=>{
+    const listings = await Listing.find({});
+    res.render("index.ejs", { listings });
+  });
   app.use("/listings", listingRoute);
   app.use("/listings/:id/reviews", reviewRoute);
   app.use("/", userRoute);

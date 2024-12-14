@@ -24,11 +24,11 @@
         </form>
     </div>
     <% } %>
-  <!-- </div> -->
+  </div>
     <hr>
     <!-- verify if user exits then he have to permission to add the review. -->
      <% if(currUser){ %>
-    <div class="cols-8 offset-3 mb-3">
+    <div class="cols-6 offset-2 mb-3">
         <h3>Leave your review</h3>
        <form action="/listings/<%=listing._id%>/reviews" method="POST" novalidate class="needs-validation">
         <fieldset class="starability-slot">
@@ -47,7 +47,7 @@
         </fieldset>
         <div class="mb-3 mt-3">
             <label for="comment" class="form-label">Comment</label>
-            <textarea name="review[comment]" id="comment" rows="5" cols="30" class="form-control" required></textarea>
+            <textarea name="review[comment]" id="comment" rows="4" cols="30" class="form-control" required></textarea>
             <div class="invalid-feedback">Add your comment</div>
         </div>
         <button class="btn btn-outline-dark">Submit</button>
@@ -56,14 +56,14 @@
       <hr>
       <% } %>
     <% if(listing.reviews.length > 0){%>
-    <div class="row">
+    <div class="row cols-6 offset-2 mb-3">
       <h4>All Reviews</h4>
     <%for(review of listing.reviews){%>
-    <div class="card col-5 mb-3 ms-3">
+    <div class="card col-6 ms-1 mb-1">
         <div class="card-body">
-          <h5 class="card-title mt-1">@<%= review.author.username %></h5>
+          <h5 class="card-title">@<%= review.author.username %></h5>
           <p class="card-text"><%=review.comment%></p>
-          <p class="starability-result" data-rating="<%=review.rating%>">
+          <p class="starability-result ms-1" data-rating="<%=review.rating%>">
           <% if(currUser && (currUser.equals(review.author._id))){ %>
           <form class="mb-2 mt-1" method="POST" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
             <button class="btn btn-sm btn-dark">Delete</button>
@@ -74,11 +74,10 @@
       <%}%>
     </div>
     <% } %>
-    <div class="row">
+    <div class="row cols-6 offset-2 mb-3">
       <h4>Where are you!!!</h4>
       <div id="map"></div>
     </div>
   </div>
-</div>
 </div>
 <script src="/js/map.js"></script>
