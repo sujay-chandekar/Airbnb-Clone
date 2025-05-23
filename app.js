@@ -25,7 +25,7 @@ if (process.env.NODE_ENV != "production") {
   app.set("view engine", "ejs");
   
   // MongoDB Connection
-  const mongoURL = process.env.ATLAS_URL + "&ssl=true";
+  const mongoURL = process.env.ATLAS_URL;
   if (!mongoURL) {
     console.error("MongoDB URL is not defined in the environment variables.");
     process.exit(1);
@@ -40,11 +40,7 @@ if (process.env.NODE_ENV != "production") {
     });
   
   async function main() {
-    await mongoose.connect(mongoURL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
-    });
+    await mongoose.connect(mongoURL);
   }
   
   const store = MongoStore.create({
@@ -65,6 +61,7 @@ if (process.env.NODE_ENV != "production") {
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 3, // 3 days
       httpOnly: true,
+      secure: process.env.NODE_ENV === "production"
     },
   };
   
@@ -104,16 +101,8 @@ if (process.env.NODE_ENV != "production") {
     next(new ExpressError(404, "Page not found!!!"));
   });
   
-  app.use((err, req, res, next) => {
-    const { statusCode = 500, message = "Something went wrong" } = err;
-    res.status(statusCode).render("error.ejs", { statusCode, message });
+  const port = process.env.PORT || 8080;
+  app.listen(port, () => {
+    console.log(`App is listening on port ${port}`);
   });
-  
-  try {
-    app.listen(8080, () => {
-      console.log("App is listening on port 8080");
-    });
-  } catch (err) {
-    console.error("Failed to start server:", err);
-  }
   
